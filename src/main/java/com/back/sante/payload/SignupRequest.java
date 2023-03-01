@@ -12,6 +12,20 @@ public class SignupRequest {
 	@NotBlank
 	@Size(min = 3, max = 20)
 	private String username;
+
+	private String datenaissance;
+	private String sexe;
+	private String adresse;
+	private String tel;
+	@NotBlank
+	@Size(max = 50)
+	@Email
+	private String email;
+	private String type;
+	@NotBlank
+	@Size(min = 6, max = 40)
+	private String password;
+
 	public String getName() {
 		return name;
 	}
@@ -59,19 +73,6 @@ public class SignupRequest {
 	public void setType(String type) {
 		this.type = type;
 	}
-
-	private String datenaissance;
-	private String sexe;
-	private String adresse;
-	private String tel;
-	@NotBlank
-	@Size(max = 50)
-	@Email
-	private String email;
-	private String type;
-	@NotBlank
-	@Size(min = 6, max = 40)
-	private String password;
 
 	public String getUsername() {
 		return username;

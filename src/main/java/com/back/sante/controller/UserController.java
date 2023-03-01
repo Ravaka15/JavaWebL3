@@ -57,16 +57,16 @@ public class UserController {
 
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
-			return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
+			return ResponseEntity.badRequest().body(new MessageResponse(" Le nom est deja utilise!"));
 		}
 
 		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-			return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
+			return ResponseEntity.badRequest().body(new MessageResponse(" L'email est deja utilise !"));
 		}
 
-		// Create new user's account
+		// Creation nouveau compte
 		User user = new User(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getDatenaissance(),
-				signUpRequest.getSexe(),signUpRequest.getAdresse(), signUpRequest.getType(), signUpRequest.getTel(), signUpRequest.getEmail(),
+				signUpRequest.getSexe(),signUpRequest.getAdresse(), signUpRequest.getTel(), signUpRequest.getEmail(), signUpRequest.getType(),
 				encoder.encode(signUpRequest.getPassword()));
 
 		Set<String> strRoles = signUpRequest.getRole();
@@ -104,15 +104,18 @@ public class UserController {
 
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	}
-//	User newUser(@RequestBody User newUser) {
-//		return userRepository.save(newUser);
-//	}
+
 
 	@GetMapping("/users")
 	List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
-
+	
+	@GetMapping("/users/patient/{type}")
+	List<User> getAllPatients(@PathVariable String type) {
+		return userRepository.findByType(type);
+	}
+	
 	@GetMapping("/user/{id}")
 	User getUserById(@PathVariable Long id) {
 		return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
@@ -150,7 +153,7 @@ public class UserController {
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
 		Authentication authentication = authenticationManager.authenticate(
-				new UsernamePasswordAuthenticationToken(loginRequest.getName(), loginRequest.getPassword()));
+				new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
 
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		String jwt = jwtUtils.generateJwtToken(authentication);
