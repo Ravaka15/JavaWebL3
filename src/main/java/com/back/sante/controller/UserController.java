@@ -120,6 +120,12 @@ public class UserController {
 	User getUserById(@PathVariable Long id) {
 		return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
 	}
+	
+	
+	@GetMapping("/users/patientRecherche/{recherche}")
+	List<User> getRecherchePatients(@PathVariable String recherche) {
+		return  userRepository.findByPatient(recherche);
+	}
 
 	@PutMapping("/user/{id}")
 	User updateUser(@RequestBody User newUser, @PathVariable Long id) {
