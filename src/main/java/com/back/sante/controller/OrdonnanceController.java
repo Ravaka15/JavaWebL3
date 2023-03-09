@@ -59,7 +59,7 @@ public class OrdonnanceController {
 	}
 	
 	@GetMapping("/ordonnances")
-	List<Ordonnance> getAllOrdonnance() {
+	List<Ordonnance> getAllOrdonnances() {
 		return ordonnanceRepository.findAll();
 	}
 }
