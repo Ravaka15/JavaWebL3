@@ -18,9 +18,9 @@ public class Ordonnance {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id_ordonnance;
 	String medicament;
-	String nombreMedicament;
-	String dureeTraitement;
-	String modeTraitement;
+	String nombre_medicament;
+	String duree_traitement;
+	String mode_traitement;
 	String observation;
 
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -33,13 +33,13 @@ public class Ordonnance {
 		super();
 	}
 
-	public Ordonnance(String medicament, String nombreMedicament, String dureeTraitement, String modeTraitement,
+	public Ordonnance(String medicament, String nombre_medicament, String duree_traitement, String mode_traitement,
 			String observation) {
 		super();
 		this.medicament = medicament;
-		this.nombreMedicament = nombreMedicament;
-		this.dureeTraitement = dureeTraitement;
-		this.modeTraitement = modeTraitement;
+		this.nombre_medicament = nombre_medicament;
+		this.duree_traitement = duree_traitement;
+		this.mode_traitement = mode_traitement;
 		this.observation = observation;
 
 	}
@@ -60,28 +60,28 @@ public class Ordonnance {
 		this.medicament = medicament;
 	}
 
-	public String getNombreMedicament() {
-		return nombreMedicament;
+	public String getNombre_medicament() {
+		return nombre_medicament;
 	}
 
-	public void setNombreMedicament(String nombreMedicament) {
-		this.nombreMedicament = nombreMedicament;
+	public void setNombre_medicament(String nombre_medicament) {
+		this.nombre_medicament = nombre_medicament;
 	}
 
-	public String getDureeTraitement() {
-		return dureeTraitement;
+	public String getDuree_traitement() {
+		return duree_traitement;
 	}
 
-	public void setDureeTraitement(String dureeTraitement) {
-		this.dureeTraitement = dureeTraitement;
+	public void setDuree_traitement(String duree_traitement) {
+		this.duree_traitement = duree_traitement;
 	}
 
-	public String getModeTraitement() {
-		return modeTraitement;
+	public String getMode_traitement() {
+		return mode_traitement;
 	}
 
-	public void setModeTraitement(String modeTraitement) {
-		this.modeTraitement = modeTraitement;
+	public void setMode_traitement(String mode_traitement) {
+		this.mode_traitement = mode_traitement;
 	}
 
 	public String getObservation() {

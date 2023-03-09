@@ -14,6 +14,7 @@ import com.back.sante.model.Consultation;
 import com.back.sante.model.Ordonnance;
 import com.back.sante.payload.OrdonnanceRequest;
 import com.back.sante.payload.MessageResponse;
+import com.back.sante.repository.ConsultationRepository;
 import com.back.sante.repository.OrdonnanceRepository;
 
 import jakarta.validation.Valid;
@@ -25,13 +26,27 @@ public class OrdonnanceController {
 	@Autowired
 	private OrdonnanceRepository ordonnanceRepository;
 	
+	@Autowired
+	private ConsultationRepository consultationRepository;
+	
 	@PostMapping("/ordonnance")
 	public ResponseEntity<?> registerOrdonnance(@Valid @RequestBody OrdonnanceRequest ordonnanceRequest) {
-		Ordonnance ordonnance = new Ordonnance(ordonnanceRequest.getMedicament(),ordonnanceRequest.getNombreMedicament(),
-				ordonnanceRequest.getDureeTraitement(),ordonnanceRequest.getModeTraitement(),ordonnanceRequest.getObservation());
-		
-		Set<String> strConsultation = ordonnanceRequest.getConsultation();
+		Ordonnance ordonnance = new Ordonnance(ordonnanceRequest.getMedicament(),ordonnanceRequest.getNombre_medicament(),
+				ordonnanceRequest.getDuree_traitement(),ordonnanceRequest.getMode_traitement(),
+				ordonnanceRequest.getObservation());
+	
+
+		Long strConsultation = ordonnanceRequest.getConsultation();
 		Set<Consultation> consultations = new HashSet<>();
+		if (strConsultation == null) {
+			Consultation consultationOrdonnance = consultationRepository.findById(strConsultation)
+					.orElseThrow(() -> new RuntimeException("Error: Consultation introuvable."));
+			consultations.add(consultationOrdonnance);
+		} else {
+			Consultation consultationOrdonnance = consultationRepository.findById(strConsultation)
+					.orElseThrow(() -> new RuntimeException("Error: Consultation introuvable."));
+			consultations.add(consultationOrdonnance);
+		}
 	
 		
 		ordonnance.setConsultations(consultations);

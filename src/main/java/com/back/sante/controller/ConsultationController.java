@@ -21,6 +21,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin("http://localhost:3000")
+
 public class ConsultationController {
 
 	@Autowired
