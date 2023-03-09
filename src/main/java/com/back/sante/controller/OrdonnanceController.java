@@ -1,17 +1,20 @@
 package com.back.sante.controller;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.back.sante.model.Consultation;
 import com.back.sante.model.Ordonnance;
+import com.back.sante.model.User;
 import com.back.sante.payload.OrdonnanceRequest;
 import com.back.sante.payload.MessageResponse;
 import com.back.sante.repository.ConsultationRepository;
@@ -53,5 +56,10 @@ public class OrdonnanceController {
 		ordonnanceRepository.save(ordonnance);
 
 		return ResponseEntity.ok(new MessageResponse("Ordonnance enregistrer!"));
+	}
+	
+	@GetMapping("/ordonnances")
+	List<Ordonnance> getAllOrdonnance() {
+		return ordonnanceRepository.findAll();
 	}
 }
