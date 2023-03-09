@@ -16,7 +16,7 @@ import jakarta.persistence.ManyToMany;
 public class Ordonnance {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long idOrdonnance;
+	Long id_ordonnance;
 	String medicament;
 	String nombreMedicament;
 	String dureeTraitement;
@@ -44,12 +44,12 @@ public class Ordonnance {
 
 	}
 
-	public Long getIdOrdonnance() {
-		return idOrdonnance;
+	public Long getId_ordonnance() {
+		return id_ordonnance;
 	}
 
-	public void setIdOrdonnance(Long idOrdonnance) {
-		this.idOrdonnance = idOrdonnance;
+	public void setId_ordonnance(Long id_ordonnance) {
+		this.id_ordonnance = id_ordonnance;
 	}
 
 	public String getMedicament() {

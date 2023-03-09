@@ -11,10 +11,10 @@ import org.springframework.data.repository.query.Param;
 
 public interface UserRepository extends JpaRepository<User,Long>{
 	Optional <User> findByEmail(String email);
-
+	Optional <User> findById(Long id);
 	Boolean existsByUsername(String name);
 	Boolean existsByEmail(String email);
-
+	
 	List<User> findByType(String type);
 	
 	@Query("select u from User u where u.type='Patient' and (u.name like %:recherche% or u.username like %:recherche% or u.sexe like %:recherche% or u.adresse like %:recherche%)")

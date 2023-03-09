@@ -17,10 +17,10 @@ import jakarta.persistence.ManyToMany;
 public class Consultation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long idConsultation;
+	Long id_consultation;
 	String maladie;
 	String resultat;
-	String dateConsultation;
+	String date_consultation;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(	name = "patient_consultation", 
@@ -34,19 +34,19 @@ public class Consultation {
 		super();
 	}
 	
-	public Consultation(String maladie, String resultat, String dateConsultation
+	public Consultation(String maladie, String resultat, String date_consultation
 			) {
 		super();
 		this.maladie = maladie;
 		this.resultat = resultat;
-		this.dateConsultation = dateConsultation;
+		this.date_consultation = date_consultation;
 	}
-	public Long getIdConsultation() {
-		return idConsultation;
+	public Long getId_consultation() {
+		return id_consultation;
 	}
 
-	public void setIdConsultation(Long idConsultation) {
-		this.idConsultation = idConsultation;
+	public void setId_consultation(Long id_consultation) {
+		this.id_consultation = id_consultation;
 	}
 
 	public String getMaladie() {
@@ -65,12 +65,12 @@ public class Consultation {
 		this.resultat = resultat;
 	}
 
-	public String getDateConsultation() {
-		return dateConsultation;
+	public String getDate_consultation() {
+		return date_consultation;
 	}
 
-	public void setDateConsultation(String dateConsultation) {
-		this.dateConsultation = dateConsultation;
+	public void setDate_consultation(String date_consultation) {
+		this.date_consultation = date_consultation;
 	}
 
 	public Set<User> getUsers() {
