@@ -8,23 +8,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.back.sante.model.Consultation;
 import com.back.sante.model.User;
-import com.back.sante.repository.ConsultationRepository;
-import com.back.sante.repository.UserRepository;
 import com.back.sante.payload.ConsultationRequest;
 import com.back.sante.payload.MessageResponse;
+import com.back.sante.repository.ConsultationRepository;
+import com.back.sante.repository.UserRepository;
 
 import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin("http://localhost:3000")
-
 public class ConsultationController {
 
 	@Autowired
@@ -51,10 +49,10 @@ public class ConsultationController {
 		}
 		
 		consultation.setUsers(users);
-		System.out.println(strUsers);
+		
 		consultationRepository.save(consultation);
 
-		return ResponseEntity.ok(new MessageResponse("Consultation enregistrer!"));
+		return ResponseEntity.ok(consultation);
 	}
 	
 	@GetMapping("/consultations")

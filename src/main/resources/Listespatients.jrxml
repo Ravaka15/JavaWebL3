@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Listespatients" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="87be7092-0dd1-4a84-a1ef-635238dd4e8e">
+	<field name="mode_traitement" class="java.lang.String"/>
+	<field name="nombre_medicament" class="java.lang.String"/>
+	<field name="duree_traitement" class="java.lang.String"/>
+	<field name="medicament" class="java.lang.String"/>
+	<field name="observation" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#0EB8D6" uuid="bf3b7e28-8cc9-447a-b912-0aad9f64c9ba"/>
+				<staticText>
+					<reportElement x="20" y="20" width="340" height="43" forecolor="#FFFFFF" uuid="6b89401c-6d3f-40f4-9e64-387c3df7b69f"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Listes des patients]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="462" y="43" width="105" height="20" forecolor="#FFFFFF" uuid="d9c98f92-9083-43cf-85f3-8d49b005466d"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Les patients]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="eabffb18-1b94-45b5-8e49-c67a4eeef9d3"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="8e93bcad-86f8-4b50-9299-da16dd6eed26">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f02621f-1707-4b78-becb-24da1dea3ea4"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="92" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="84de3b45-a310-4661-9442-91feb690e3ca">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="009e169a-737a-4194-b574-fbd2908f058e"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prenom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="180" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3b572b22-c2de-4ef5-8eac-ee3325c53f79">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f33dfb7-35e2-445d-a330-4a1bda8ec0f8"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sexe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="261" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="101c7b93-5bf0-4f58-8df5-861a0dc8e411">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="88946db6-d58c-4205-b2c3-84382936df90"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Maladie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="356" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="8c2950cc-6f4d-44c8-b6ee-fe6fa909dfb9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a14009eb-d4de-4ef4-9d2a-fb6de0e3dddc"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Observation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="450" y="0" width="101" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="aef322aa-42f6-43cd-9a0f-76d4b8baa177">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6f8972f-6c8f-446b-a0a7-40ca4c2728dc"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date cons]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="59c58e73-9407-4a94-be77-59e4bf9f4809"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="92" height="20" uuid="0b0dae6e-77f2-461b-99be-5aa968393b92">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f02621f-1707-4b78-becb-24da1dea3ea4"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mode_traitement}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="0" width="92" height="20" uuid="61a65068-258e-48a6-8471-7158868d9b6b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="009e169a-737a-4194-b574-fbd2908f058e"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_medicament}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="0" width="78" height="20" uuid="a18206eb-14a6-4928-b03d-9cda10dee596">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f33dfb7-35e2-445d-a330-4a1bda8ec0f8"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{duree_traitement}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="77" height="20" uuid="ada3072f-4234-479d-9550-42e926da8828">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="88946db6-d58c-4205-b2c3-84382936df90"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{medicament}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="356" y="0" width="94" height="20" uuid="89509a08-52f5-4647-b0e5-e297b20bd753">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a14009eb-d4de-4ef4-9d2a-fb6de0e3dddc"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{observation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="0" width="92" height="20" uuid="3c8f3417-2a0a-4f50-b7e7-29963f1fa1e8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6f8972f-6c8f-446b-a0a7-40ca4c2728dc"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_medicament}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="6ebe30c1-f93d-4872-8a3a-ba5d7337e4fb"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="0da6b065-2478-46a8-9a82-acbb9a6c60ff"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="f18adfc0-4811-4879-ae54-0c65479539ef"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -64,7 +64,7 @@ public class UserController {
 			return ResponseEntity.badRequest().body(new MessageResponse(" L'email est deja utilise !"));
 		}
 
-		// Creation nouveau compte
+		// Creation
 		User user = new User(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getDatenaissance(),
 				signUpRequest.getSexe(),signUpRequest.getAdresse(), signUpRequest.getTel(), signUpRequest.getEmail(), signUpRequest.getType(),
 				encoder.encode(signUpRequest.getPassword()));
