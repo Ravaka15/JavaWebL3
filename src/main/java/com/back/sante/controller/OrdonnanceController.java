@@ -16,15 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.back.sante.model.Consultation;
 import com.back.sante.model.Ordonnance;
-import com.back.sante.model.User;
 import com.back.sante.payload.OrdonnanceRequest;
-import com.back.sante.print.ReportService;
 import com.back.sante.payload.MessageResponse;
 import com.back.sante.repository.ConsultationRepository;
 import com.back.sante.repository.OrdonnanceRepository;
 
 import jakarta.validation.Valid;
-import net.sf.jasperreports.engine.JRException;
 
 
 @RestController
@@ -36,8 +33,6 @@ public class OrdonnanceController {
 	@Autowired
 	private ConsultationRepository consultationRepository;
 	
-	@Autowired
-	private ReportService service;
 	
 	@PostMapping("/ordonnance")
  	public ResponseEntity<?> registerOrdonnance(@Valid @RequestBody OrdonnanceRequest ordonnanceRequest) {
@@ -70,9 +65,4 @@ public class OrdonnanceController {
 		return ordonnanceRepository.findAll();
 	}
 	
-	
-	@GetMapping("/print/{format}")
-	public String generateReport(@PathVariable String format) throws FileNotFoundException, JRException{
-		return service.exportsReport(format);
-	}
 }

@@ -17,10 +17,12 @@ public interface UserRepository extends JpaRepository<User,Long>{
 	
 	List<User> findByType(String type);
 	
+	long countByType(String type);
+	
+	//Recherche de patient
 	@Query("select u from User u where u.type='Patient' "
 			+ "and (u.name like %:recherche% or u.username like %:recherche% or u.sexe like %:recherche% or u.adresse like %:recherche%)")
 	List<User> findByPatient(@Param("recherche") String recherche);
 		
-		
-
+	
 }

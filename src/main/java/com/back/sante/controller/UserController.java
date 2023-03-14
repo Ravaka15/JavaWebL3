@@ -105,23 +105,32 @@ public class UserController {
 		return ResponseEntity.ok(new MessageResponse("Patient bien enregistre!"));
 	}
 
-
+	//Affichage de tous les user
 	@GetMapping("/users")
 	List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 	
+	//Affichage par type patient
 	@GetMapping("/users/patient/{type}")
 	List<User> getAllPatients(@PathVariable String type) {
 		return userRepository.findByType(type);
 	}
 	
+	//Selection par id
 	@GetMapping("/user/{id}")
 	User getUserById(@PathVariable Long id) {
 		return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
 	}
 	
 	
+	@GetMapping("/nombrepatient/{type}")
+	long getCountByType(@PathVariable String type) {
+	    return userRepository.countByType(type);
+	}
+
+	
+	//Recherche patient
 	@GetMapping("/users/patientRecherche/{recherche}")
 	List<User> getRecherchePatients(@PathVariable String recherche) {
 		return  userRepository.findByPatient(recherche);
@@ -171,4 +180,6 @@ public class UserController {
 		return ResponseEntity
 				.ok(new JwtResponse(jwt, userDetails.getId(), userDetails.getName(), userDetails.getEmail()));
 	}
+	
+	
 }
